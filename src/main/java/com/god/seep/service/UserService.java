@@ -2,9 +2,11 @@ package com.god.seep.service;
 
 import com.god.seep.bean.User;
 import com.god.seep.dao.UserDao;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+@Service
 public class UserService implements BaseService<User> {
     @Resource
     private UserDao userDao;

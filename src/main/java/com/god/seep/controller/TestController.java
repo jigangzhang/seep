@@ -35,9 +35,16 @@ public class TestController {
     @RequestMapping(value = "/save")
     public String save() {
         User user = new User();
+        user.setId(3L);
         user.setNickname("Jack");
         user.setPassword("123456");
         userService.save(user);
         return user.toString();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/load")
+    public String load() {
+        return userService.load(1L).toString();
     }
 }
