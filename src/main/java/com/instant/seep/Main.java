@@ -43,26 +43,6 @@ public class Main {
         }
     }
 
-    public static boolean sendFile(OutputStream outputStream, String fileName) {
-        File file = new File(fileName);
-        try (FileInputStream fis = new FileInputStream(file)) {
-            byte[] bytes = new byte[2048];
-            int read = fis.read(bytes);
-            while (read != -1) {
-                outputStream.write(bytes);
-                read = fis.read(bytes);
-            }
-            outputStream.flush();
-            return true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
     public static String toJson() {
 
         return "";

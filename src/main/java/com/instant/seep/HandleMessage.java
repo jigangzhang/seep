@@ -1,14 +1,10 @@
-package com.instant.seep;
+package com.instant.seep
+        ;
 
-import com.alibaba.fastjson.JSON;
-import com.instant.seep.bean.Entity;
-import com.instant.seep.bean.FileInfo;
 import com.sun.istack.internal.NotNull;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
 
 public class HandleMessage extends Thread {
     private Socket mSocket;
@@ -27,33 +23,13 @@ public class HandleMessage extends Thread {
             writer = new PrintWriter(new OutputStreamWriter(mSocket.getOutputStream()));
             String line = reader.readLine();
             while (line != null && !line.equals("quit")) {
-                if (line.equals(Constants.FILE_LIST)) {
-                    File file = new File("H:\\shared");
-                    List<FileInfo> list = new ArrayList<>();
-                    if (file.exists() && file.isDirectory()) {
-                        File[] files = file.listFiles();
-                        if (files != null) {
-                            for (File item : files) {
-                                FileInfo info = new FileInfo(item.getName(), item.length(), item.lastModified());
-                                list.add(info);
-                            }
-                        }
-                    }
-                    Entity<List<FileInfo>> entity = new Entity<>();
-                    if (list.size() > 0) {
-                        entity.setSuccess(true);
-                        entity.setData(list);
-                    } else {
-                        entity.setSuccess(false);
-                        entity.setError("no files");
-                    }
-                    writer.println(JSON.toJSON(entity));
-                } else {
-                    System.out.println("receive-->" + line);
-                    writer.println("okk");
-                    writer.flush();
-                    line = reader.readLine();
+                System.out.println("command-->" + line);
+                if (line.equals(Command.FILE_LIST)) {
+                    FileUtil.writeFileList(writer);
+                } else if (line.startsWith(Command.SEND_FILE)) {
+                    FileUtil.sendFile(mSocket.getOutputStream(), line.replace(Command.SEND_FILE, ""));
                 }
+                line = reader.readLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
