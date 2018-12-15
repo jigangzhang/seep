@@ -45,9 +45,8 @@ public class FileUtil {
             int read;
             while ((read = fis.read(bytes)) != -1) {
                 outputStream.write(bytes, 0, read);
-                outputStream.flush();
             }
-            outputStream.flush();
+            fis.close();
             return true;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
