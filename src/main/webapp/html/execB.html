@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ 
+</body>
+</html>
+<script src="http://lib.baomitu.com/jquery/3.3.1/jquery.js"></script>
+<script>
+   //jquery操作方式，变个颜色
+   // $('#notebook', window.parent.myframe.document).css("backgroundColor","red")
+ 
+   //js的操作方式，变个颜色
+   parent.window.frames["myframe"].document.getElementById("recharPrompt").style.backgroundColor = "green";
+ 
+   var temp = parent.window.frames["myframe"].document.getElementById("recharPrompt").innerHRML;//取值
+   console.log(temp)
+</script>

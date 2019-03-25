@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!-- saved from url=(0158)https://yimin-chuxing.oss-cn-beijing.aliyuncs.com/yimin_static_page/yimin_customer/chargeRule.html?administrativeDivisionCode=620103&orderBusinessType=OBT0001 -->
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<title>计价规则详情</title>
+		<script src="https://yimin-chuxing.oss-cn-beijing.aliyuncs.com/yimin_static_page/yimin_customer/js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="https://yimin-chuxing.oss-cn-beijing.aliyuncs.com/yimin_static_page/yimin_customer/js/chargeRule.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="../js/chargeRule.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				font-size: 12px;
+				padding: 10px;
+			}
+			
+			#rule {}
+			
+			#rule p {
+				font-size: 20px;
+			}
+			
+			.rule-box,
+			.table-c {
+				padding: 4px 0;
+			}
+			
+			.table-c table {
+				width: 100%;
+				border-collapse: collapse;
+				border-right: 1px solid #cdcdcd;
+				border-top: 1px solid #cdcdcd;
+			}
+			
+			.table-c table td {
+				border-left: 1px solid #cdcdcd;
+				border-bottom: 1px solid #cdcdcd;
+				text-align: center;
+				height: 38px;
+				width: 20%;
+				padding: 2px;
+			}
+			
+			#wait,
+			#wait1 {
+				border-top: 0px;
+			}
+			
+			h4 {
+				-webkit-margin-before: 0.88em;
+				-webkit-margin-after: 0.88em;
+			}
+			
+			.friendly {
+				display: flex;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.friendly div {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+			
+			.friendly div p {
+				font-size: 20px;
+				margin: 10px 0px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="container" style="display: none;">
+			<div id="rule">
+				<p>您所在区域计价规则如下：</p>
+				<div class="rule-box rule-box1" style="display: none;">
+					<div class="title"><span class="orderBusinessChargeRuleType"></span>·立即</div>
+					<div class="table-c">
+						<table onclick="clickTable()">
+							<tbody>
+								<tr id="A_name">
+									<td></td>
+									
+								</tr>
+								<tr id="A_platformServicePrice" style="display: none;">
+									<td>平台服务费</td>
+									
+								</tr>
+								<tr id="A_minimumConsumerPrice" style="display: none;">
+									<td>最低消费金额</td>
+									
+								</tr>
+								<tr id="A_fixedPrice">
+									<td>固定费</td>
+									
+								</tr>
+
+								<tr id="A_durationPrice">
+									<td>时长费</td>
+									
+								</tr>
+
+								<tr id="A_mileagePrice">
+									<td>里程费</td>
+									
+								</tr>
+
+								<tr id="A_longPrice">
+									<td>远途费</td>
+								</tr>
+							</tbody>
+						</table>
+						<table id="wait" style="display: none;">
+							<tbody>
+								<tr id="A_waitting">
+									<td>等待费</td>
+								</tr>
+							</tbody>
+						</table>
+						<table id="wait1" style="display: none;">
+							<tbody>
+								<tr id="A_cancel">
+									<td>取消费</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="rule-box rule-box2" style="display: none;">
+					<div class="title"><span class="orderBusinessChargeRuleType"></span>·预约</div>
+					<div class="table-c">
+						<table>
+							<tbody>
+								<tr id="B_name">
+									<td></td>
+								</tr>
+								<tr id="B_platformServicePrice" style="display: none;">
+									<td>平台服务费</td>
+								</tr>
+								<tr id="B_minimumConsumerPrice" style="display: none;">
+									<td>最低消费金额</td>
+								</tr>
+								<tr id="B_fixedPrice">
+									<td>固定费</td>
+								</tr>
+
+								<tr id="B_durationPrice">
+									<td>时长费</td>
+								</tr>
+
+								<tr id="B_mileagePrice">
+									<td>里程费</td>
+								</tr>
+
+								<tr id="B_longPrice">
+									<td>远途费</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="rule-box rule-box3" style="display: none;">
+					<div class="title"><span class="orderBusinessChargeRuleType"></span>·接机</div>
+					<div class="table-c">
+						<table>
+							<tbody>
+								<tr id="C_name">
+									<td></td>
+								</tr>
+								<tr id="C_platformServicePrice" style="display: none;">
+									<td>平台服务费</td>
+								</tr>
+								<tr id="C_minimumConsumerPrice" style="display: none;">
+									<td>最低消费金额</td>
+								</tr>
+								<tr id="C_fixedPrice">
+									<td>固定费</td>
+								</tr>
+
+								<tr id="C_durationPrice">
+									<td>时长费</td>
+								</tr>
+
+								<tr id="C_mileagePrice">
+									<td>里程费</td>
+								</tr>
+
+								<tr id="C_longPrice">
+									<td>远途费</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="rule-box rule-box4" style="display: none;">
+					<div class="title"><span class="orderBusinessChargeRuleType"></span>·送机</div>
+					<div class="table-c">
+						<table>
+							<tbody>
+								<tr id="D_name">
+									<td></td>
+								</tr>
+								<tr id="D_platformServicePrice" style="display: none;">
+									<td>平台服务费</td>
+								</tr>
+								<tr id="D_minimumConsumerPrice" style="display: none;">
+									<td>最低消费金额</td>
+								</tr>
+								<tr id="D_fixedPrice">
+									<td>固定费</td>
+								</tr>
+
+								<tr id="D_durationPrice">
+									<td>时长费</td>
+								</tr>
+
+								<tr id="D_mileagePrice">
+									<td>里程费</td>
+								</tr>
+
+								<tr id="D_longPrice">
+									<td>远途费</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="rule-box rule-box5" style="display: none;">
+					<div class="title"><span class="orderBusinessChargeRuleType"></span>·半日租</div>
+					<div class="table-c">
+						<table>
+							<tbody>
+								<tr id="E_name">
+									<td></td>
+								</tr>
+								<tr id="E_platformServicePrice" style="display: none;">
+									<td>平台服务费</td>
+								</tr>
+								<tr id="E_minimumConsumerPrice" style="display: none;">
+									<td>最低消费金额</td>
+								</tr>
+								<tr id="E_fixedPrice">
+									<td>固定费</td>
+								</tr>
+
+								<tr id="E_durationPrice">
+									<td>时长费</td>
+								</tr>
+
+								<tr id="E_mileagePrice">
+									<td>里程费</td>
+								</tr>
+
+								<tr id="E_longPrice">
+									<td>远途费</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="rule-box rule-box6" style="display: none;">
+					<div class="title"><span class="orderBusinessChargeRuleType"></span>·日租</div>
+					<div class="table-c">
+						<table>
+							<tbody>
+								<tr id="F_name">
+									<td></td>
+								</tr>
+								<tr id="F_platformServicePrice" style="display: none;">
+									<td>平台服务费</td>
+								</tr>
+								<tr id="F_minimumConsumerPrice" style="display: none;">
+									<td>最低消费金额</td>
+								</tr>
+								<tr id="F_fixedPrice">
+									<td>固定费</td>
+								</tr>
+
+								<tr id="F_durationPrice">
+									<td>时长费</td>
+								</tr>
+
+								<tr id="F_mileagePrice">
+									<td>里程费</td>
+								</tr>
+
+								<tr id="F_longPrice">
+									<td>远途费</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="tip">
+				<h3>收费说明：</h3>
+				<h4>1、固定费</h4>
+				<p>为最低消费金额。若时长费、里程费、远途费等基础费用合计不足固定费时按固定费收取。</p>
+				<h4>2、清洁费</h4>
+				<p>如客户在用车时发生呕吐、踩蹬等情况造成车辆脏乱的，客户需支付清洁费100元/次。</p>
+				<h4>3、差旅费</h4>
+				<p>连续多日订单驾驶员需要陪同异地过夜的情况下，客户需支付驾驶员食宿费（食宿费需由客户直接支付，公司不予报销）。</p>
+				<h4>4、路桥费、停车费</h4>
+				<p>用车过程中产生路桥费（含高速费）、停车费等费用，由客户自行支付。若客户要求驾驶员垫付的，按照实际金额的2.0倍收取。</p>
+				<h4>5、取消费用</h4>
+				<p>以下情况，客户需支付取消费用</p>
+				<p>1）驾驶员到达上车地点后取消订单的。</p>
+				<p>2）驾驶员到达上车地点后，乘客15分钟内未上车，且无法取得联系的。</p>
+				<p>取消收费标准</p>
+				<p>1）立即叫车收取固定费及驾驶员到达上车地点5分钟后的等待时长费用。</p>
+				<p>2）预约叫车收取固定费及用车时间5分钟后的等待时长费用。</p>
+				<p>3）接机、送机、日租、半日租收取固定费。</p>
+				<h4>6、其它</h4>
+				<p>1）连续多日订单驾驶员需要陪同异地过夜的情况下，如当天订单结束，次日客户需下全日租订单使用车辆，若无全日租订单或下其他订单，驾驶员将无法为您提供服务。</p>
+				<p>2）预估费用仅供参考，实际费用可能因交通、天气等因素而不同。预估价不包含路桥费、停车费等由第三方产生的费用。 第三方费用需客户自行现金支付，若您选择线上钱包余额支付，则支付金额为第三方实际费用的2.0倍。
+				</p>
+			</div>
+		</div>
+		<div class="friendly" style="display: none;">
+			<div>
+				<p>404!</p>
+				<p>您的页面走丢了!</p>
+			</div>
+
+		</div>
+
+	</body>
+</html>

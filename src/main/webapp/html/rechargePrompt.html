@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 94%;
+				background: #fff;
+				margin: auto;
+				padding-top: 20px;
+			}
+			div {
+				font-size: 14px;
+				text-indent:25px;
+				
+			}
+			.recharPrompt{
+				height: 40px;
+			}
+			.notOpen{
+				height: 80px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div id="recharPrompt" class="recharPrompt" style="display: none;">钱包余额只支持专车订单支付</div>
+			<div id="notOpen"  class="notOpen" style="display: none;">钱包余额只支持专车订单支付，当前城市暂未开通专车业务</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function getUrlParam(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null)
+				return unescape(r[2]);
+			return null;
+		}
+		if(getUrlParam('isCurrentCityOpen')){
+			document.getElementById('notOpen').style.display="block";
+		}else{
+			document.getElementById('recharPrompt').style.display="block";
+		}
+	</script>
+
+</html>

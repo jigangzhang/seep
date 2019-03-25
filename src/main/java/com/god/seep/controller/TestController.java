@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
 
 import javax.annotation.Resource;
 
@@ -23,6 +24,26 @@ public class TestController {
     public String test(int id) {
         System.out.println("controller test id" + id);
         return "welcome";
+    }
+
+    @RequestMapping(value = {"/express"}, method = RequestMethod.GET)
+    public String test1() {
+        return "expressPrompt";
+    }
+
+    @RequestMapping(value = {"/recharge"}, method = RequestMethod.GET)
+    public String test2() {
+        return "rechargePrompt";
+    }
+
+    @RequestMapping(value = {"/billing"}, method = RequestMethod.GET)
+    public String test3() {
+        return "billingDetails";
+    }
+
+    @RequestMapping(value = {"/chargeRule"}, method = RequestMethod.GET)
+    public String test4() {
+        return "chargeRule";
     }
 
     @ResponseBody
