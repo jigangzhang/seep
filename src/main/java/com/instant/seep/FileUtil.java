@@ -56,4 +56,39 @@ public class FileUtil {
             return false;
         }
     }
+
+    /**
+     * 接收文件到一半时 进入阻塞 直到 客户端 close 时 才接收到剩余数据（先收到接收标识 -1 然后才收到剩余数据）
+     * 客户端关闭流试一下：shutdown
+     */
+    public static boolean revFile(InputStream inputStream, FileInfo fileInfo) {
+        File file = new File("H:\\shared\\" + fileInfo.getFileName());
+        if (file.exists())
+            file.delete();
+        try (FileOutputStream fos = new FileOutputStream(file)) {
+            byte[] bytes = new byte[2048];
+            int read;
+            long totalLength = 0;
+            BufferedInputStream bis = new BufferedInputStream(inputStream);
+            while ((read = bis.read(bytes)) != -1) {
+                fos.write(bytes, 0, read);
+                totalLength = totalLength + read;
+                Main.print("rev length --> " + totalLength);
+                if (totalLength == fileInfo.getFileSize())
+                    break;
+                int remain;
+//                while ((remain = bis.available()) == 0) {
+//                    Main.print("waiting read " + remain);
+//                    Thread.sleep(1);
+//                }
+            }
+            Main.print("rev finish");
+            return true;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

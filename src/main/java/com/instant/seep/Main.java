@@ -1,13 +1,15 @@
 package com.instant.seep;
 
+import com.instant.seep.bean.UserInfo;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
-    public static List<Socket> mSockets = new ArrayList<>();
+    public volatile static Map<Socket, UserInfo> mSockets = new HashMap<>();
 
     public static void main(String[] args) {
         // write your code here
@@ -15,32 +17,17 @@ public class Main {
             ServerSocket serverSocket = new ServerSocket(9999);
             while (true) {
                 Socket socket = serverSocket.accept();
-                mSockets.add(socket);
+                mSockets.put(socket, new UserInfo(socket.getInetAddress().getHostName(), socket.getPort()));
                 new HandleMessage(socket).start();
-                System.out.println("connect-->" + socket.isConnected() + ",connected to " + socket.getRemoteSocketAddress());
+                print("connect-->" + socket.isConnected() + ",connected to remote " + socket.getRemoteSocketAddress());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static boolean receiveFile(InputStream inputStream, String fileName) {
-        File file = new File(fileName);
-        try (FileOutputStream fos = new FileOutputStream(file)) {
-            byte[] bytes = new byte[2048];
-            int read = inputStream.read(bytes);
-            while (read != -1) {
-                fos.write(bytes);
-                read = inputStream.read(bytes);
-            }
-            return true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
+    public static void print(String msg) {
+        System.out.println(msg);
     }
 
     public static String toJson() {

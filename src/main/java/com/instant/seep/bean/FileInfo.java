@@ -34,4 +34,13 @@ public class FileInfo {
     public void setModifyTime(long modifyTime) {
         this.modifyTime = modifyTime;
     }
+
+    @Override
+    public String toString() {
+        return "FileInfo{" +
+                "fileName='" + fileName + '\'' +
+                ", fileSize=" + fileSize +
+                ", modifyTime=" + modifyTime +
+                '}';
+    }
 }
