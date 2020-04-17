@@ -59,7 +59,7 @@ public class FileUtil {
 
     /**
      * 接收文件到一半时 进入阻塞 直到 客户端 close 时 才接收到剩余数据（先收到接收标识 -1 然后才收到剩余数据）
-     * 客户端关闭流试一下：shutdown
+     * 客户端关闭流试一下：socket.shutdownOutput
      */
     public static boolean revFile(InputStream inputStream, FileInfo fileInfo) {
         File file = new File("H:\\shared\\" + fileInfo.getFileName());

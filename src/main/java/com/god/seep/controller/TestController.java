@@ -46,6 +46,11 @@ public class TestController {
         return "chargeRule";
     }
 
+    @RequestMapping(value = {"/expectPrice"}, method = RequestMethod.GET)
+    public String expectPrice() {
+        return "estimatesDetails";
+    }
+
     @ResponseBody
     @RequestMapping(value = "/json")
     public String json() {
