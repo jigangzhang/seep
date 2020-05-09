@@ -11,9 +11,9 @@ import java.util.Date;
 import java.util.List;
 
 public class GetuiPush implements IPush {
-    private static String appId = "bXqpzPJkhm7AU8SvT3Xff4";
-    private static String appKey = "lfm0Lqc6ml7EhOp3gIfgf5";
-    private static String masterSecret = "oUrA1nJHwl7cIkNJeLtL75";
+    private static String appId = "xxx";
+    private static String appKey = "xxx";
+    private static String masterSecret = "xxx";
     private static String url = "http://sdk.open.api.igexin.com/apiex.htm";
     IGtPush gtPush;
     private int count;
