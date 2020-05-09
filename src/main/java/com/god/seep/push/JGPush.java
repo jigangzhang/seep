@@ -15,8 +15,8 @@ import java.util.Date;
 
 public class JGPush implements IPush {
     private org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger("JiGuang");
-    private static final String masterSecret = "4b6356eace4c57ee7790713b";
-    private static final String appKey = "d318fa573aa250ec6c956767";
+    private static final String masterSecret = "xxx";
+    private static final String appKey = "xxx";
 
     private JPushClient jpushClient;
     private int count;
