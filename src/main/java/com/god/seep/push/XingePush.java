@@ -14,7 +14,7 @@ public class XingePush implements IPush {
     private int count;
 
     public XingePush() {
-        xingeApp = new XingeApp(2100269029, "f52d2573d426a2498a2674db293301ef");
+        xingeApp = new XingeApp(121, "xxx");
     }
 
     @Override

@@ -10,11 +10,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ALiPush implements IPush {
-    //name: zjg@zjg.onaliyun.com
-    private static final String accessKeyID = "LTAIKCJMWXw1LG7w";
-    private static final String accessKeySecret = "YuNE3nqRszX1mkb5mOx3Nt6PYNXnwh";
-    //    private static final long appKey = 27674914;
-    private static final long appKey = 27687885;
+    
+    private static final String accessKeyID = "xxx";
+    private static final String accessKeySecret = "xxx";
+  
+    private static final long appKey = 213;
 
     private DefaultAcsClient client;
     private int count;
